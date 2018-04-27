@@ -18,6 +18,7 @@
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
 		       sublimity
+		       neotree
 		       )  "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
@@ -56,6 +57,8 @@
 (scroll-bar-mode -1)
 ;; 设置行号
 (global-linum-mode t)
+;; 在行号和内容之间加空格
+(setq linum-format "%d ")
 ;; 关闭启动画面
 (setq inhibit-splash-screen t)
 ;; 设置快捷键打开配置文件
@@ -63,6 +66,9 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "<f2>") 'open-my-init-file)
+;; 开启neotree
+(require 'neotree)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
 ;; 开启全局自动补全
 (global-company-mode t)
 ;; 设置光标类型，有些变量是buffer-local，用setq只更改当前buffer内的值，
