@@ -50,10 +50,12 @@
 
 ;; 关闭工具栏
 (tool-bar-mode -1)
+;; 关闭菜单栏
+(menu-bar-mode -1)
 ;; 关闭滚动条
 (scroll-bar-mode -1)
 ;; 设置行号
-(global-linum-mode -1)
+(global-linum-mode t)
 ;; 关闭启动画面
 (setq inhibit-splash-screen t)
 ;; 设置快捷键打开配置文件
@@ -86,9 +88,9 @@
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 ;; 高亮当前行
-(global-hl-line-mode t)
+;;(global-hl-line-mode t)
 ;; 启用主题
-(load-theme 'github-modern t)
+;;(load-theme 'github-modern t)
 ;; 启用hungry-delte模式，一次删除多个空格
 (require 'hungry-delete)
 (global-hungry-delete-mode t)
