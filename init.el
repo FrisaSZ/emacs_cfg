@@ -60,7 +60,7 @@
 (defun open-my-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
-(global-set-key (kbd "C-<f5>") 'open-my-init-file)
+(global-set-key (kbd "<f2>") 'open-my-init-file)
 ;; 开启全局自动补全
 (global-company-mode t)
 ;; 设置光标类型，有些变量是buffer-local，用setq只更改当前buffer内的值，
