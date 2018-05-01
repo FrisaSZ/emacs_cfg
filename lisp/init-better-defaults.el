@@ -44,4 +44,22 @@
 ;; 方便双窗口显示目录后复制文件
 (setq dired-dwim-target t)
 
+;; 整体功能：让光标处于括号中间时也能对两侧括号高亮，使用defin-advice增强
+;; 已有的show-paren-function功能
+;; fn指代被装饰的函数，先用正则表达式判断是否就在括号外侧，是的话直接调用
+;; fn，否则的话先往回移动光标到外一层括号，然后调用fn，然后用于设置了
+;; save-excursion，调用完fn实现高亮后又把光标放回原来位置
+;; ps:这里的正则表达式的写法还有待测试，发现不管怎么写，最终效果都一样
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
+
+;; 删除windows下的换行符^M
+(defun remove-dos-eol ()
+  (interactive)
+  (goto-char (point-min)) ;; 跳转到buffer最开始，相当于快捷键M-<
+  (while (search-backward "\r" nil t) (replace-match ""))) ;; 前向搜索"\r"替换为空
+
 (provide 'init-better-defaults)

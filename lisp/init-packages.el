@@ -17,6 +17,8 @@
 		       sublimity
 		       neotree
 		       popwin
+		       expand-region ;; 扩展选中功能
+		       iedit ;; 同时编辑多块区域
 		       )  "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
@@ -38,8 +40,10 @@
 (require 'neotree)
 ;; 开启全局自动补全
 (global-company-mode t)
-;; 启用括号自动补全
+;; 启用括号、引号的自动补全
 (smartparens-global-mode t)
+;; 在emacs-lisp-mode下单引号不自动补全
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 
 ;; 启用hungry-delte模式，一次删除多个空格
 (require 'hungry-delete)
@@ -68,6 +72,29 @@
 (require 'popwin)
 (popwin-mode t)
 
+;; occur的M-s-o会正则搜索字符串并打开一个新窗口显示结果，
+;; 按下回车跳转过去，可以在customize-group里设置popwin的
+;; 弹出窗口位置，来控制正则搜索结果显示的窗口放置在左、右、下
+;; 此时在occur buffer中按e，能进入编辑模式，直接对特定的
+;; 实例进行修改。
+;; 下面对occur增强，自动正则搜索当前光标下的词
+;; dwim = do what i mean
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+(global-set-key (kbd "M-s o") 'occur-dwim)
 
-
+;; 自动列出当前buffer中的函数及变量列表
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+;; 开启iedit-mode
+(global-set-key (kbd "M-s e") 'iedit-mode)
 (provide 'init-packages)

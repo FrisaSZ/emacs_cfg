@@ -7,4 +7,8 @@
 ;; 这样就不用显式的用required 'dired了，避免不必要的负载
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+;; expand-region包里的扩展选中功能
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 (provide 'init-keybindings)
