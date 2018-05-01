@@ -17,13 +17,13 @@
 ;; 设置光标类型，有些变量是buffer-local，用setq只更改当前buffer内的值，
 ;; 用setq-default 才能更改全局的默认值，如果变量不是buffer-local的，
 ;; 两个命令就没区别
-(setq-default cursor-type 'hollow)
+(setq-default cursor-type 'bar)
 
 ;; 启动时自动全屏
 (setq  initial-frame-alist (quote ((fullscreen . maximized))))
 ;; 高亮当前行
 ;;(global-hl-line-mode t)
 ;; 设置主题
-(load-theme 'monokai t)
+(load-theme 'northcode t)
 
 (provide 'init-ui)

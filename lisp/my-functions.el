@@ -4,4 +4,6 @@
 (defun open-my-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
+
+;; provide会把特定的feature添加到features变量中去
 (provide 'my-functions)

@@ -10,7 +10,7 @@
 ;; 设置自己需要的package集合
 (defvar fsz/packages '(
 		       company
-		       monokai-theme
+		       northcode-theme
 		       hungry-delete
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
