@@ -14,11 +14,11 @@
 		       hungry-delete
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
-		       sublimity
 		       neotree
 		       popwin
 		       expand-region ;; 扩展选中功能
 		       iedit ;; 同时编辑多块区域
+		       smooth-scrolling ;; 平滑滚动
 		       )  "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
@@ -61,16 +61,13 @@
 ;;(global-set-key (kbd "<f1> f") 'counsel-describe-function)
 ;;(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
 
-;; 平滑滚动，minimap，集中注意力模式
-;;(require 'sublimity)
-;;(require 'sublimity-scroll)
-;;(require 'sublimity-map) ;; experimental
-;;(require 'sublimity-attractive)
-;;(sublimity-mode 1)
-
 ;; 启用popwin，自动切换光标到新打开的窗口
 (require 'popwin)
 (popwin-mode t)
+
+;; 启用平滑滚动
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
 
 ;; occur的M-s-o会正则搜索字符串并打开一个新窗口显示结果，
 ;; 按下回车跳转过去，可以在customize-group里设置popwin的

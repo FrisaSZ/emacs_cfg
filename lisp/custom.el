@@ -7,7 +7,7 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
  '(popwin:popup-window-position (quote right))
- '(popwin:popup-window-width 64))
+ '(popwin:popup-window-width 64)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

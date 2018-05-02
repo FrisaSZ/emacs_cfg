@@ -20,7 +20,7 @@
 (setq-default cursor-type 'bar)
 
 ;; 启动时自动全屏
-(setq  initial-frame-alist (quote ((fullscreen . maximized))))
+;;(setq  initial-frame-alist (quote ((fullscreen . maximized))))
 ;; 高亮当前行
 ;;(global-hl-line-mode t)
 ;; 使用图形界面时加载主题，使用命令行时不加载
