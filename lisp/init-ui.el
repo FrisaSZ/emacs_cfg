@@ -26,8 +26,9 @@
 ;; 使用图形界面时加载主题，使用命令行时不加载
 (if (display-graphic-p)
     (progn
+      (message "emacs runs in graphic")
       (load-theme 'northcode t)
-      (message "emacs runs in graphic"))
+      (global-hl-line-mode t))
   (message "emacs runs in terminal"))
 
 (provide 'init-ui)
