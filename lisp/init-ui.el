@@ -23,7 +23,11 @@
 (setq  initial-frame-alist (quote ((fullscreen . maximized))))
 ;; 高亮当前行
 ;;(global-hl-line-mode t)
-;; 设置主题
-(load-theme 'northcode t)
+;; 使用图形界面时加载主题，使用命令行时不加载
+(if (display-graphic-p)
+    (progn
+      (load-theme 'northcode t)
+      (message "emacs runs in graphic"))
+  (message "emacs runs in terminal"))
 
 (provide 'init-ui)
