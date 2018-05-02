@@ -15,12 +15,16 @@
 ;; 文件在外部修改了，自动加载
 (global-auto-revert-mode t)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 启用最近文件列表
 ;; require 的作用是加载一个特性
 (require 'recentf)
 (recentf-mode t)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;; 确认输入的yes or no改成y or no
 ;;(fset 'yes-or-no-p 'y-or-n-p)
@@ -30,20 +34,29 @@
 ;; 删除目录时始终递归删除
 (setq dired-recursive-deletes 'always)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 重用唯一的一个缓冲区作为dired mode 显示专用缓冲区，避免每次打开
 ;; 一个目录都重新打开一个dired buffer，当然仅仅是指在一个窗口内部
 ;; 不断进进出出目录时。如果单独在另外一个窗口打开别的目录还是会新建
 ;; 另一个buffer。
 ;; 文档描述:In Dired, visit this file or directory instead of the Dired buffer.
 (put 'dired-find-alternate-file 'disabled nil)
-
+;; 仅当dired特性加载之后在执行后面的快捷键设置，是个延迟设定
+;; 这样就不用显式的用required 'dired了，避免不必要的负载
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 ;; 用C-x C-j打开当前文件所在目录
 (require 'dired-x)
-
 ;; dired mode下用C复制文件时自动把路径补全为另一个dired buffer对应的目录，
 ;; 方便双窗口显示目录后复制文件
 (setq dired-dwim-target t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 整体功能：让光标处于括号中间时也能对两侧括号高亮，使用defin-advice增强
 ;; 已有的show-paren-function功能
 ;; fn指代被装饰的函数，先用正则表达式判断是否就在括号外侧，是的话直接调用
@@ -55,11 +68,16 @@
 	(t (save-excursion
 	     (ignore-errors (backward-up-list))
 	     (funcall fn)))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 删除windows下的换行符^M
 (defun remove-dos-eol ()
   (interactive)
   (goto-char (point-min)) ;; 跳转到buffer最开始，相当于快捷键M-<
   (while (search-backward "\r" nil t) (replace-match ""))) ;; 前向搜索"\r"替换为空
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 (provide 'init-better-defaults)
