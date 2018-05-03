@@ -21,6 +21,7 @@
 		       expand-region ;; 扩展选中功能
 		       iedit ;; 同时编辑多块区域
 		       smooth-scrolling ;; 平滑滚动
+		       anaconda-mode
 		       )  "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
@@ -104,6 +105,6 @@
 (global-set-key (kbd "M-s e") 'iedit-mode)
 ;; expand-region包里的扩展选中功能
 (global-set-key (kbd "C-=") 'er/expand-region)
-
+(add-hook 'python-mode-hook 'anaconda-mode)
 
 (provide 'init-packages)
