@@ -3,24 +3,21 @@
 ;; 引用common lisp的一些功能
 (require 'cl)
 
-
 ;; 设置melpa源
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
-
 ;; 设置自己需要的package集合
-(defvar fsz/packages '(
-		       company
-		       github-modern-theme
+(defvar fsz/packages '(company ;; 自动补全
+		       github-modern-theme ;; github风格主题
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
 		       popwin
 		       expand-region ;; 扩展选中功能
 		       iedit ;; 同时编辑多块区域
 		       smooth-scrolling ;; 平滑滚动
-		       anaconda-mode
-		       )  "Default packages")
+		       anaconda-mode ;; python mode
+		       ) "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
 ;; 检查是否有包没安装，如果有包没安装返回nil，全安装了返回t

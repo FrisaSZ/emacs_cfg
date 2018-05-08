@@ -1,4 +1,4 @@
-;; 调整emacs默认行为
+;; emacs内建功能的配置
 
 ;; 禁止备份文件
 (setq make-backup-files nil)
@@ -15,14 +15,10 @@
 ;; 文件在外部修改了，自动加载
 (global-auto-revert-mode t)
 
-
 ;; 启用最近文件列表
-;; require 的作用是加载一个特性
-(require 'recentf)
 (recentf-mode t)
-(setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
-
+(setq recentf-max-menu-items 32)
+;;(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; 确认输入的yes or no改成y or no
 ;;(fset 'yes-or-no-p 'y-or-n-p)
@@ -31,7 +27,6 @@
 (setq dired-recursive-copies 'always)
 ;; 删除目录时始终递归删除
 (setq dired-recursive-deletes 'always)
-
 
 ;; 重用唯一的一个缓冲区作为dired mode 显示专用缓冲区，避免每次打开
 ;; 一个目录都重新打开一个dired buffer，当然仅仅是指在一个窗口内部
@@ -49,9 +44,6 @@
 ;; 方便双窗口显示目录后复制文件
 (setq dired-dwim-target t)
 
-
-
-
 ;; 整体功能：让光标处于括号中间时也能对两侧括号高亮，使用defin-advice增强
 ;; 已有的show-paren-function功能
 ;; fn指代被装饰的函数，先用正则表达式判断是否就在括号外侧，是的话直接调用
@@ -64,12 +56,43 @@
 	     (ignore-errors (backward-up-list))
 	     (funcall fn)))))
 
-
 ;; 删除windows下的换行符^M
 (defun remove-dos-eol ()
   (interactive)
   (goto-char (point-min)) ;; 跳转到buffer最开始，相当于快捷键M-<
   (while (search-backward "\r" nil t) (replace-match ""))) ;; 前向搜索"\r"替换为空
 
+;; 关闭工具栏
+(tool-bar-mode -1)
+;; 关闭菜单栏
+(menu-bar-mode -1)
+;; 关闭滚动条
+(scroll-bar-mode -1)
+;; 关闭响铃
+(setq ring-bell-function 'ignore)
+;; 设置行号
+;;(global-linum-mode t)
+;; 在行号和内容之间加空格
+;;(setq linum-format "%d ")
+;; 关闭启动画面
+(setq inhibit-splash-screen t)
+;; 设置光标类型，有些变量是buffer-local，用setq只更改当前buffer内的值，
+;; 用setq-default 才能更改全局的默认值，如果变量不是buffer-local的，
+;; 两个命令就没区别
+(setq-default cursor-type 'box)
 
-(provide 'defaults-fsz)
+;; 启动时自动全屏
+(setq  initial-frame-alist (quote ((fullscreen . maximized))))
+;; 高亮当前行
+;;(global-hl-line-mode t)
+;; 使用图形界面时加载主题，使用命令行时不加载
+(if (display-graphic-p)
+    (progn
+      (message "emacs runs in graphic")
+      (load-theme 'github-modern t)
+      (global-hl-line-mode t))
+  (message "emacs runs in terminal")
+  (global-linum-mode t)
+  (setq linum-format "%d "))
+
+(provide 'builtin-fsz)

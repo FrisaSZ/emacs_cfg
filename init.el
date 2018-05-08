@@ -5,10 +5,9 @@
 (package-initialize)
 ;; 设置加载路径
 (add-to-list 'load-path "~/.emacs.d/lisp")
-(require 'defun-fsz)
+(require 'functions-fsz)
 (require 'packages-fsz)
-(require 'ui-fsz)
-(require 'defaults-fsz)
+(require 'builtin-fsz)
 
 (setq custom-file "~/.emacs.d/lisp/emacs-custom.el")
 (load custom-file)
