@@ -9,4 +9,4 @@
 
 
 ;; provide会把特定的feature添加到features变量中去
-(provide 'my-functions)
+(provide 'defun-fsz)

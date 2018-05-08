@@ -12,11 +12,9 @@
 ;; 设置自己需要的package集合
 (defvar fsz/packages '(
 		       company
-		       northcode-theme
-		       hungry-delete
+		       github-modern-theme
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
-		       neotree
 		       popwin
 		       expand-region ;; 扩展选中功能
 		       iedit ;; 同时编辑多块区域
@@ -40,12 +38,6 @@
       (package-install pkg))))
 
 
-;; 开启neotree
-(require 'neotree)
-;; 打开neotree
-(global-set-key (kbd "<f8>") 'neotree-toggle)
-
-
 ;; 开启全局自动补全
 (global-company-mode t)
 ;; 默认是使用M-n M-p在补全候选中上下选择，改为使用C-n C-p在补全候选中上下选择
@@ -60,11 +52,6 @@
 (smartparens-global-mode t)
 ;; 在emacs-lisp-mode下单引号不自动补全
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-
-
-;; 启用hungry-delte模式，一次删除多个空格
-(require 'hungry-delete)
-(global-hungry-delete-mode t)
 
 
 ;; 启用popwin，自动切换光标到新打开的窗口
@@ -107,4 +94,4 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (add-hook 'python-mode-hook 'anaconda-mode)
 
-(provide 'init-packages)
+(provide 'packages-fsz)

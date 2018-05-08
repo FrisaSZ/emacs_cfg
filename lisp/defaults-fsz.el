@@ -72,4 +72,4 @@
   (while (search-backward "\r" nil t) (replace-match ""))) ;; 前向搜索"\r"替换为空
 
 
-(provide 'init-better-defaults)
+(provide 'defaults-fsz)
