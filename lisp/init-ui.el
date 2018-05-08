@@ -17,7 +17,7 @@
 ;; 设置光标类型，有些变量是buffer-local，用setq只更改当前buffer内的值，
 ;; 用setq-default 才能更改全局的默认值，如果变量不是buffer-local的，
 ;; 两个命令就没区别
-(setq-default cursor-type 'bar)
+(setq-default cursor-type 'box)
 
 ;; 启动时自动全屏
 ;;(setq  initial-frame-alist (quote ((fullscreen . maximized))))
