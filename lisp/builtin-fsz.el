@@ -62,6 +62,27 @@
   (goto-char (point-min)) ;; 跳转到buffer最开始，相当于快捷键M-<
   (while (search-backward "\r" nil t) (replace-match ""))) ;; 前向搜索"\r"替换为空
 
+;; occur的M-s-o会正则搜索字符串并打开一个新窗口显示结果，
+;; 按下回车跳转过去，可以在customize-group里设置popwin的
+;; 弹出窗口位置，来控制正则搜索结果显示的窗口放置在左、右、下
+;; 此时在occur buffer中按e，能进入编辑模式，直接对特定的
+;; 实例进行修改。
+;; 下面对occur增强，自动正则搜索当前光标下的词
+;; dwim = do what i mean
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
 ;; 关闭工具栏
 (tool-bar-mode -1)
 ;; 关闭菜单栏
