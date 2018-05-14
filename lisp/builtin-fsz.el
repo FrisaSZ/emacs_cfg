@@ -84,13 +84,18 @@
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
 ;; 关闭工具栏
-(tool-bar-mode -1)
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
 ;; 关闭菜单栏
-(menu-bar-mode -1)
+(when (fboundp 'menu-bar-mode)
+    (menu-bar-mode -1))
 ;; 关闭滚动条
-(scroll-bar-mode -1)
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 ;; 关闭响铃
 (setq ring-bell-function 'ignore)
+;;(when (fboundp 'pixel-scroll-mode)
+;;  (pixel-scroll-mode 1))
 ;; 设置行号
 ;;(global-linum-mode t)
 ;; 在行号和内容之间加空格
