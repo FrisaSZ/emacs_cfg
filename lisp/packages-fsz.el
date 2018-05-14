@@ -10,6 +10,8 @@
 ;; 设置自己需要的package集合
 (defvar fsz/packages '(company ;; 自动补全
 		       github-modern-theme ;; github风格主题
+		       abyss-theme
+		       afternoon-theme
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
 		       popwin
