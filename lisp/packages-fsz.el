@@ -21,7 +21,7 @@
 		       smooth-scrolling ;; 平滑滚动
 		       anaconda-mode ;; python mode
 		       ggtags
-		       sr-speedbar
+		       neotree
 		       ) "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
@@ -39,6 +39,9 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
+;; neotree开启
+(require 'neotree)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
 
 ;; 开启全局自动补全
 (require 'company)
@@ -50,10 +53,6 @@
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
-;; 删掉company-semantic后端
-;;(setq company-backends (delete 'company-semantic company-backends))
-;;(define-key c-mode-map  [(tab)] 'company-complete)
-;;(define-key c++-mode-map  [(tab)] 'company-complete)
 
 ;; 启用括号、引号的自动补全
 (smartparens-global-mode t)

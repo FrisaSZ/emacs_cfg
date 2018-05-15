@@ -4,6 +4,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'functions-fsz)
 (require 'packages-fsz)
+(require 'ivy-fsz)
 (require 'builtin-fsz)
 
 (setq custom-file "~/.emacs.d/lisp/emacs-custom.el")
