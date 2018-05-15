@@ -12,7 +12,7 @@
 		       github-modern-theme ;; github风格主题
 		       abyss-theme
 		       afternoon-theme
-		       github-modern-theme
+		       cyberpunk-theme
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
 		       popwin

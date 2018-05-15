@@ -173,4 +173,12 @@ a
     (setq x (+ x 1))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 定义函数
+;; 定义函数 (defun function_name (param1 param2) "doc_string" body)
+(defun myFunc()
+  "fsz myFunc"
+  (message "FSZ_DONE"))
+;; 定义交互式函数：即可以在M-x里使用的函数，加上(interactive)
+(defun myIFunc()
+  "I Func"
+  (interactive)
+  (insert "FSZ"))
