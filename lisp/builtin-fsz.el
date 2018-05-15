@@ -20,9 +20,6 @@
 (setq recentf-max-menu-items 32)
 ;;(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-;; 确认输入的yes or no改成y or no
-;;(fset 'yes-or-no-p 'y-or-n-p)
-
 ;; 拷贝目录时始终递归拷贝
 (setq dired-recursive-copies 'always)
 ;; 删除目录时始终递归删除
