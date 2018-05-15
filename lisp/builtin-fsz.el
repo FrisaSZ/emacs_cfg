@@ -115,7 +115,7 @@
 (if (display-graphic-p)
     (progn
       (message "emacs runs in graphic")
-      (load-theme 'afternoon t)
+      (load-theme 'github-modern t)
       (global-hl-line-mode t))
   (message "emacs runs in terminal")
   (global-linum-mode t)

@@ -12,6 +12,7 @@
 		       github-modern-theme ;; github风格主题
 		       abyss-theme
 		       afternoon-theme
+		       github-modern-theme
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
 		       popwin
@@ -20,6 +21,7 @@
 		       smooth-scrolling ;; 平滑滚动
 		       anaconda-mode ;; python mode
 		       ggtags
+		       sr-speedbar
 		       ) "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
