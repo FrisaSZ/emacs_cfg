@@ -116,6 +116,10 @@
       (global-hl-line-mode t))
   (message "emacs runs in terminal")
   (global-linum-mode t)
+  (global-hl-line-mode t)
   (setq linum-format "%d "))
+
+;; tab-width是buffer-local的
+(setq-default tab-width 4)
 
 (provide 'builtin-fsz)
