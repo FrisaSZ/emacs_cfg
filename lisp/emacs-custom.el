@@ -6,7 +6,7 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.2)
  '(company-minimum-prefix-length 2)
- '(smooth-scroll-margin 1)
+ '(smooth-scroll-margin 2)
  '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
