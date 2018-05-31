@@ -112,13 +112,12 @@
 (if (display-graphic-p)
     (progn
       (message "emacs runs in graphic")
-      (load-theme 'cyberpunk t)
-      ;;(global-hl-line-mode t)
-	  )
+      (load-theme 'cyberpunk t))
   (message "emacs runs in terminal")
   (global-linum-mode t)
-  ;;(global-hl-line-mode t)
   (setq linum-format "%d "))
+
+()
 
 ;; tab-width是buffer-local的
 (setq-default tab-width 4)
