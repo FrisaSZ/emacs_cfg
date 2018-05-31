@@ -113,13 +113,15 @@
     (progn
       (message "emacs runs in graphic")
       (load-theme 'cyberpunk t))
-  (message "emacs runs in terminal")
-  (global-linum-mode t)
-  (setq linum-format "%d "))
-
-()
+  (message "emacs runs in terminal"))
 
 ;; tab-width是buffer-local的
 (setq-default tab-width 4)
+
+;; 开关行号
+(setq linum-format "%d ")
+(global-set-key (kbd "M-o L") 'global-linum-mode)
+;; 开关高亮当前行
+(global-set-key (kbd "M-o H") 'global-hl-line-mode)
 
 (provide 'builtin-fsz)
