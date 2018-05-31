@@ -1,4 +1,4 @@
-;;(package-initialize)
+(package-initialize)
 
 ;; 设置加载路径
 (add-to-list 'load-path "~/.emacs.d/lisp")
