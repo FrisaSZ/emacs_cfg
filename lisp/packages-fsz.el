@@ -22,6 +22,7 @@
 		       anaconda-mode ;; python mode
 		       ggtags
 		       neotree
+			   ace-window
 		       ) "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
