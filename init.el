@@ -1,8 +1,4 @@
-(if (version< emacs-version "27")
-	(progn
-	  (message "emacs version < 27 use package-initialize")
-	  (package-initialize))  
-  (message "emacs version >= 27"))
+(package-initialize)
 
 ;; 设置加载路径
 (add-to-list 'load-path "~/.emacs.d/lisp")
