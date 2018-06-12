@@ -13,6 +13,7 @@
 		       abyss-theme
 		       afternoon-theme
 		       cyberpunk-theme
+			   ample-theme
 		       counsel ;; 安装counsel自动安装ivy和swiper
 		       smartparens
 		       popwin

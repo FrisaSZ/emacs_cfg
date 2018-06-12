@@ -112,7 +112,7 @@
 (if (display-graphic-p)
     (progn
       (message "emacs runs in graphic")
-      (load-theme 'cyberpunk t))
+      (load-theme 'ample t))
   (progn
 	(message "emacs runs in terminal")
 	(global-linum-mode t))
