@@ -126,4 +126,7 @@
 ;; 开关高亮当前行
 (global-set-key (kbd "M-o H") 'global-hl-line-mode)
 
+;; 设置默认字体
+(when (member "Sarasa Term SC" (font-family-list)) (set-frame-font "Sarasa Term SC-12" t t))
+
 (provide 'builtin-fsz)
