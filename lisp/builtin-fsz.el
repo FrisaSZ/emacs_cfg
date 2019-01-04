@@ -107,7 +107,7 @@
 ;; 启动时自动全屏
 (setq  initial-frame-alist (quote ((fullscreen . maximized))))
 ;; 加载主题
-(load-theme 'ample t)
+;;(load-theme 'ample t)
 (if (display-graphic-p)
     (progn
       (message "emacs runs in graphic")
