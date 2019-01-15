@@ -49,9 +49,9 @@
 ;; ps:这里的正则表达式的写法还有待测试，发现不管怎么写，最终效果都一样
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   (cond ((looking-at-p "\\s(") (funcall fn))
-	(t (save-excursion
-	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
+		(t (save-excursion
+			 (ignore-errors (backward-up-list))
+			 (funcall fn)))))
 
 ;; 删除windows下的换行符^M
 (defun remove-dos-eol ()
@@ -70,13 +70,13 @@
   "Call `occur' with a sane default."
   (interactive)
   (push (if (region-active-p)
-	    (buffer-substring-no-properties
-	     (region-beginning)
-	     (region-end))
-	  (let ((sym (thing-at-point 'symbol)))
-	    (when (stringp sym)
-	      (regexp-quote sym))))
-	regexp-history)
+			(buffer-substring-no-properties
+			 (region-beginning)
+			 (region-end))
+		  (let ((sym (thing-at-point 'symbol)))
+			(when (stringp sym)
+			  (regexp-quote sym))))
+		regexp-history)
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
@@ -85,7 +85,7 @@
   (tool-bar-mode -1))
 ;; 关闭菜单栏
 (when (fboundp 'menu-bar-mode)
-    (menu-bar-mode -1))
+  (menu-bar-mode -1))
 ;; 关闭滚动条
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
@@ -115,7 +115,7 @@
   (progn
 	(message "emacs runs in terminal")
 	)
-)
+  )
 
 ;; tab-width是buffer-local的
 (setq-default tab-width 4)

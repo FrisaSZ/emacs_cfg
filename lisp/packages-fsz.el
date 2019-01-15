@@ -9,29 +9,30 @@
 
 ;; 设置自己需要的package集合
 (defvar fsz/packages '(company ;; 自动补全
-		       github-modern-theme ;; github风格主题
-		       abyss-theme
-		       afternoon-theme
-		       cyberpunk-theme
-			   ample-theme
-		       counsel ;; 安装counsel自动安装ivy和swiper
-		       smartparens
-		       popwin
-		       expand-region ;; 扩展选中功能
-		       iedit ;; 同时编辑多块区域
-		       smooth-scrolling ;; 平滑滚动
-		       anaconda-mode ;; python mode
-		       ggtags
-		       neotree
-			   ace-window
-		       ) "Default packages")
+					   github-modern-theme ;; github风格主题
+					   abyss-theme
+					   afternoon-theme
+					   cyberpunk-theme
+					   ample-theme
+					   counsel ;; 安装counsel自动安装ivy和swiper
+					   smartparens
+					   popwin
+					   expand-region ;; 扩展选中功能
+					   iedit ;; 同时编辑多块区域
+					   smooth-scrolling ;; 平滑滚动
+					   anaconda-mode ;; python mode
+					   ggtags
+					   neotree
+					   ace-window
+					   youdao-dictionary
+					   ) "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
 ;; 检查是否有包没安装，如果有包没安装返回nil，全安装了返回t
 (defun fsz/packages-installed-p ()
   (loop for pkg in fsz/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
+		when (not (package-installed-p pkg)) do (return nil)
+		finally (return t)))
 ;; 如果条件返回nil，就执行函数体，否则返回nil，
 ;; 如果有包没安装就执行安装过程
 (unless (fsz/packages-installed-p)
