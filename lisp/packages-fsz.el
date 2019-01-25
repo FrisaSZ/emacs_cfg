@@ -10,6 +10,7 @@
 ;; 设置自己需要的package集合
 (defvar fsz/packages '(company ;; 自动补全
 					   github-modern-theme ;; github风格主题
+					   tangotango-theme
 					   abyss-theme
 					   afternoon-theme
 					   cyberpunk-theme
