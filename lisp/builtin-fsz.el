@@ -129,4 +129,8 @@
 ;; 设置默认字体
 (when (member "Sarasa Term SC" (font-family-list)) (set-frame-font "Sarasa Term SC-12" t t))
 
+;; 鼠标滚动
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 5) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+
 (provide 'builtin-fsz)
