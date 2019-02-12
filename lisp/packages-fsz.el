@@ -27,6 +27,7 @@
 					   ace-window
 					   youdao-dictionary
 					   conda
+					   evil
 					   ) "Default packages")
 ;; 设置package列表为我的package列表
 (setq package-selected-packages fsz/packages)
@@ -97,5 +98,8 @@
 (conda-env-initialize-interactive-shells)
 (conda-env-initialize-eshell)
 (setq-default mode-line-format (cons '(:exec conda-env-current-name) mode-line-format))
+
+(require 'evil)
+(evil-mode 1)
 
 (provide 'packages-fsz)
