@@ -20,7 +20,6 @@
 					   ggtags
 					   neotree
 					   ace-window
-					   youdao-dictionary
 					   evil
 					   ) "Default packages")
 ;; 设置package列表为我的package列表
